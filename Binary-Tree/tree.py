@@ -38,10 +38,9 @@ class Node:
             self.right.traversePostorder()
         print(self.data)
 
-
     def height(self, h=0):
-        left_height = self.left.height(h+1) if self.left else h
-        right_height = self.right.height(h+1) if self.right else h
+        left_height = self.left.height(h + 1) if self.left else h
+        right_height = self.right.height(h + 1) if self.right else h
         return max(left_height, right_height)
 
     def getNodesAtDepth(self, depth, nodes=[]):
@@ -49,9 +48,9 @@ class Node:
             nodes.append(self.data)
             return nodes
         if self.left:
-            self.left.getNodesAtDepth(depth-1, nodes)
+            self.left.getNodesAtDepth(depth - 1, nodes)
         if self.right:
-            self.right.getNodesAtDepth(depth-1, nodes)
+            self.right.getNodesAtDepth(depth - 1, nodes)
         return nodes
 
 
@@ -81,6 +80,7 @@ class Tree:
     def __repr__(self):
         return self.name
 
+
 ## Testing the tree
 
 tree = Tree(Node(50), 'Tree Traversals')
@@ -93,9 +93,7 @@ tree.root.right.right = Node(42)
 tree.root.left.left.left = Node(5)
 tree.root.left.left.right = Node(13)
 
-
 print("Nodes at depth", tree.getNodesAtDepth(2))
-
 
 print("Traverse Pre-Order")
 tree.traversePreorder()
@@ -111,17 +109,15 @@ print("Height of the tree:", tree.height())
 shortTree = Tree(Node(50), 'Tree Traversals')
 print("Height of the tree:", shortTree.height())
 
-
-
 node = Node(10)
 node.left = Node(5)
 node.right = Node(15)
 
 node.left.left = Node(2)
-node.left.right = Node(6) ## smaller than 10 but should be larger than 5
+node.left.right = Node(6)  ## smaller than 10 but should be larger than 5
 
-node.right.left = Node(13) ## smaller than 15 but should be larger than 10
-node.right.right = Node(20) ## larger than 15
+node.right.left = Node(13)  ## smaller than 15 but should be larger than 10
+node.right.right = Node(20)  ## larger than 15
 
 ## print(node.right.data)
 ## print(node.right.right.data)
