@@ -18,3 +18,18 @@ Input: nums = [1]
 Output: 1
 
 """
+
+from typing import List
+
+def findMin(nums: List[int]) -> int:
+    left, right = 0, len(nums) - 1
+
+    while left < right:
+        mid = (left + right) // 2
+        # Check if the middle element is greater than the rightmost element
+        if nums[mid] > nums[right]:
+            left = mid + 1  # The minimum is in the right half
+        else:
+            right = mid  # The minimum is in the left half or at mid
+
+    return nums[left]  # The left pointer will point to the minimum element
