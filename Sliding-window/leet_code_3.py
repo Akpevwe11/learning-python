@@ -40,9 +40,12 @@ def length_of_longest_substring(s: str) -> int:
             char_set.remove(s[left])
             left += 1
         char_set.add(s[right])
-        max_length = max(max_length, left - right + 1)
+        max_length = max(max_length, right - left + 1)
 
     return max_length
+
+
+
 
 # Example usage
 s = "abcabcbb"
