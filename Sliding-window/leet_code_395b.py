@@ -52,3 +52,7 @@ def longestSubstring_divide_conquer(s: str, k: int) -> int:
     # If no character has frequency < k, The whole string is valid
     if split_char is None:
         return n
+
+    # If we found a character with frequency < k, split the string by it
+    # and recursively find the longest substring in the parts
+
